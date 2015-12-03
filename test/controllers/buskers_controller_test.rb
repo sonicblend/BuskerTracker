@@ -1,0 +1,49 @@
+require 'test_helper'
+
+class BuskersControllerTest < ActionController::TestCase
+  setup do
+    @busker = buskers(:one)
+  end
+
+  test "should get index" do
+    get :index
+    assert_response :success
+    assert_not_nil assigns(:buskers)
+  end
+
+  test "should get new" do
+    get :new
+    assert_response :success
+  end
+
+  test "should create busker" do
+    assert_difference('Busker.count') do
+      post :create, busker: { description: @busker.description, facebook: @busker.facebook, image_id: @busker.image_id, name: @busker.name, twitter: @busker.twitter, www: @busker.www }
+    end
+
+    assert_redirected_to busker_path(assigns(:busker))
+  end
+
+  test "should show busker" do
+    get :show, id: @busker
+    assert_response :success
+  end
+
+  test "should get edit" do
+    get :edit, id: @busker
+    assert_response :success
+  end
+
+  test "should update busker" do
+    patch :update, id: @busker, busker: { description: @busker.description, facebook: @busker.facebook, image_id: @busker.image_id, name: @busker.name, twitter: @busker.twitter, www: @busker.www }
+    assert_redirected_to busker_path(assigns(:busker))
+  end
+
+  test "should destroy busker" do
+    assert_difference('Busker.count', -1) do
+      delete :destroy, id: @busker
+    end
+
+    assert_redirected_to buskers_path
+  end
+end

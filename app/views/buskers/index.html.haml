@@ -1,0 +1,31 @@
+%h1 Listing buskers
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Description
+      %th Image
+      %th Facebook
+      %th Twitter
+      %th Www
+      %th
+      %th
+      %th
+
+  %tbody
+    - @buskers.each do |busker|
+      %tr
+        %td= busker.name
+        %td= busker.description
+        %td= busker.image_id
+        %td= busker.facebook
+        %td= busker.twitter
+        %td= busker.www
+        %td= link_to 'Show', busker
+        %td= link_to 'Edit', edit_busker_path(busker)
+        %td= link_to 'Destroy', busker, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Busker', new_busker_path
