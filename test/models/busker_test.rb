@@ -46,7 +46,7 @@ class BuskerTest < ActiveSupport::TestCase
   end
 
   test "website should be valid" do
-    invalid_website_urls = ['httpz://www.google.com/', 'cadburys chocolate']
+    invalid_website_urls = ['httpz://www.google.com/', 'cadburys chocolate', 'loopy@gmail.com']
     invalid_website_urls.each do |url|
       @busker.website = url
       assert_not @busker.valid?
