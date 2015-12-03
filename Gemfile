@@ -1,7 +1,11 @@
 source 'https://rubygems.org'
 
+# Template language
 gem 'haml'
+# Responsive HTML/CSS framework
 gem 'foundation-rails'
+# Image upload
+gem 'cloudinary'
 
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.15'
