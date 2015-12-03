@@ -18,7 +18,7 @@ class BuskersControllerTest < ActionController::TestCase
 
   test "should create busker" do
     assert_difference('Busker.count') do
-      post :create, busker: { description: @busker.description, facebook: @busker.facebook, image_id: @busker.image_id, name: @busker.name, twitter: @busker.twitter, www: @busker.www }
+      post :create, busker: { description: @busker.description, facebook: @busker.facebook, image_id: @busker.image_id, name: @busker.name, twitter: @busker.twitter, website: @busker.website }
     end
 
     assert_redirected_to busker_path(assigns(:busker))
@@ -35,7 +35,7 @@ class BuskersControllerTest < ActionController::TestCase
   end
 
   test "should update busker" do
-    patch :update, id: @busker, busker: { description: @busker.description, facebook: @busker.facebook, image_id: @busker.image_id, name: @busker.name, twitter: @busker.twitter, www: @busker.www }
+    patch :update, id: @busker, busker: { description: @busker.description, facebook: @busker.facebook, image_id: @busker.image_id, name: @busker.name, twitter: @busker.twitter, website: @busker.website }
     assert_redirected_to busker_path(assigns(:busker))
   end
 

@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20151203123917) do
     t.string   "image_id"
     t.string   "facebook"
     t.string   "twitter"
-    t.string   "www"
+    t.string   "website"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end

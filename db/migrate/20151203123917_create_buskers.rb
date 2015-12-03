@@ -6,7 +6,7 @@ class CreateBuskers < ActiveRecord::Migration
       t.string :image_id
       t.string :facebook
       t.string :twitter
-      t.string :www
+      t.string :website
 
       t.timestamps null: false
     end

@@ -53,6 +53,6 @@ class BuskersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def busker_params
-      params.require(:busker).permit(:name, :description, :image_id, :facebook, :twitter, :www)
+      params.require(:busker).permit(:name, :description, :image_id, :facebook, :twitter, :website)
     end
 end

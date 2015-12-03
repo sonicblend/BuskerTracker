@@ -6,7 +6,7 @@ one:
   image_id: MyString
   facebook: MyString
   twitter: MyString
-  www: MyString
+  website: MyString
 
 two:
   name: MyString
@@ -14,4 +14,4 @@ two:
   image_id: MyString
   facebook: MyString
   twitter: MyString
-  www: MyString
+  website: MyString
