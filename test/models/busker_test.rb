@@ -18,4 +18,38 @@ class BuskerTest < ActiveSupport::TestCase
     @busker.name = '   '
     assert_not @busker.valid?
   end
+
+  test "twitter address should reject invalid urls" do
+    invalid_twitter_urls = %w[tweeter.com/blabla twitter.com/asdf.asdf]
+    invalid_twitter_urls.each do |url|
+      @busker.twitter = url
+      assert_not @busker.valid?
+    end
+  end
+
+  test "twitter address should not be too long" do
+    @busker.twitter = 'a' * 16
+    assert_not @busker.valid?
+  end
+
+  test "facebook address should reject invalid urls" do
+    invalid_facebook_urls = %w[facebook.com/☃  fayzbook.com/bla facebook.com/bla_bla]
+    invalid_facebook_urls.each do |url|
+      @busker.facebook = url
+      assert_not @busker.valid?
+    end
+  end
+
+  test "facebook address should not be too long" do
+    @busker.facebook = 'a' * 51
+    assert_not @busker.valid?
+  end
+
+  test "website should be valid" do
+    invalid_website_urls = ['httpz://www.google.com/', 'cadburys chocolate']
+    invalid_website_urls.each do |url|
+      @busker.website = url
+      assert_not @busker.valid?
+    end
+  end
 end
