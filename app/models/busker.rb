@@ -6,7 +6,7 @@ class Busker < ActiveRecord::Base
   VALID_URL            = URI::regexp(%w(http https))
   VALID_NO_SPACES      = /\A[^ @]+\z/
 
-  before_validation :strip_whitespace, :sanitize_url
+  before_validation :strip_whitespace, :prefix_url
 
   validates :name, presence: true
   validates :facebook, allow_blank: true, format: VALID_FACEBOOK_REGEX
@@ -18,9 +18,8 @@ class Busker < ActiveRecord::Base
   }
 
   private
-  def sanitize_url
+  def prefix_url
     if !self.website.blank? and self.website_changed?
-      self.website = self.website.strip
       self.website = "http://#{website}" unless website =~ /:\/\//
     end
   end
