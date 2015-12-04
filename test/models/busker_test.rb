@@ -52,4 +52,11 @@ class BuskerTest < ActiveSupport::TestCase
       assert_not @busker.valid?
     end
   end
+
+  test "should be valid without a twitter, website, or facebook" do
+    @busker.twitter = ' '
+    @busker.website = ''
+    @busker.facebook = '  '
+    assert @busker.valid?
+  end
 end

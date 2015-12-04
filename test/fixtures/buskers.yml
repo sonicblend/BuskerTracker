@@ -4,14 +4,14 @@ one:
   name: MyString
   description: MyText
   image_id: MyString
-  facebook: MyString
-  twitter: MyString
-  website: MyString
+  facebook: facebook.com/MyString
+  twitter: twitter.com/mystring
+  website: http://MyString.com
 
 two:
   name: MyString
   description: MyText
   image_id: MyString
-  facebook: MyString
-  twitter: MyString
-  website: MyString
+  facebook: fb.com/MyString
+  twitter: twitter.com/aposdkpoaskdp
+  website: ''
