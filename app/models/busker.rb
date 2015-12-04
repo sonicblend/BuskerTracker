@@ -14,7 +14,7 @@ class Busker < ActiveRecord::Base
   validates :website,  allow_blank: true, format: VALID_URL
   validates :website,  allow_blank: true, format: {
     with:    VALID_NO_SPACES,
-    message: 'must have no spaces'
+    message: 'must have no spaces, or @ symbols'
   }
 
   private
