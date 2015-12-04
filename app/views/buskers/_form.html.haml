@@ -1,3 +1,4 @@
+= cloudinary_js_config
 = form_for @busker do |f|
   - if @busker.errors.any?
     #error_explanation
@@ -14,7 +15,23 @@
     = f.text_area :description
   .field
     = f.label :image_id
-    = f.text_field :image_id
+    = f.hidden_field :image_id
+    = cl_image_upload_tag(:image_id)
+    #busker-image-preview
+      - if @busker.image_id.present?
+        = cl_image_tag(@busker.image_id, :crop => :fill, :width => 120, :height => 80)
+
+    :javascript
+      $('.cloudinary-fileupload').bind('cloudinarydone', function(e, data) {
+        $('#busker-image-preview').html(
+          $.cloudinary.image(data.result.public_id,
+            { format: data.result.format, version: data.result.version,
+              crop: 'fill', width: 150, height: 100 })
+        );
+        $('#busker_image_id').val(data.result.public_id);
+        return true;
+      });
+
   .field
     = f.label :facebook
     = f.text_field :facebook

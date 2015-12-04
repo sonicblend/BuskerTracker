@@ -16,7 +16,10 @@
   %tbody
     - @buskers.each do |busker|
       %tr
-        %td= busker.image_id
+        - if busker.image_id.present?
+          %td= cl_image_tag(busker.image_id, :crop => :fill, :width => 120, :height => 80)
+        - else
+          %td= 'no image'
         %td= busker.name
         %td= busker.description
         %td= busker.facebook

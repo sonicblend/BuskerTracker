@@ -8,7 +8,10 @@
   = @busker.description
 %p
   %b Image:
-  = @busker.image_id
+  - if @busker.image_id.present?
+    = cl_image_tag(@busker.image_id, :crop => :fill, :width => 120, :height => 80)
+  - else
+    = 'no image'
 %p
   %b Facebook:
   = @busker.facebook
