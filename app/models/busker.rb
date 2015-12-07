@@ -19,6 +19,12 @@ class Busker < ActiveRecord::Base
 
   private
   def prefix_url
+    if !self.facebook.blank? and self.facebook_changed?
+      self.facebook = "https://#{facebook}" unless facebook =~ /:\/\//
+    end
+    if !self.twitter.blank? and self.twitter_changed?
+      self.twitter = "https://#{twitter}" unless twitter =~ /:\/\//
+    end
     if !self.website.blank? and self.website_changed?
       self.website = "http://#{website}" unless website =~ /:\/\//
     end

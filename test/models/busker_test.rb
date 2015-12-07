@@ -59,4 +59,14 @@ class BuskerTest < ActiveSupport::TestCase
     @busker.facebook = '  '
     assert @busker.valid?
   end
+
+  test "facebook address should be prefixed with https if no prefix specified" do
+    @busker.facebook = 'fb.com/SophieTheBusker'
+    assert @busker.valid?
+  end
+
+  test "twitter address should be prefixed with https if no prefix specified" do
+    @busker.twitter = 'twitter.com/buskinginbath'
+    assert @busker.valid?
+  end
 end
