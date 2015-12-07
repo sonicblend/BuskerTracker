@@ -32,6 +32,12 @@ class BuskerTest < ActiveSupport::TestCase
     assert_not @busker.valid?
   end
 
+  test "twitter address should be prefixed with https if no prefix specified" do
+    @busker.twitter = 'twitter.com/buskinginbath'
+    @busker.valid?
+    assert_equal('https://twitter.com/buskinginbath', @busker.twitter)
+  end
+
   test "facebook address should reject invalid urls" do
     invalid_facebook_urls = %w[facebook.com/☃  fayzbook.com/bla facebook.com/bla_bla]
     invalid_facebook_urls.each do |url|
@@ -43,6 +49,17 @@ class BuskerTest < ActiveSupport::TestCase
   test "facebook address should not be too long" do
     @busker.facebook = 'a' * 51
     assert_not @busker.valid?
+  end
+
+  test "facebook address should validate fb.com urls" do
+    @busker.facebook = 'fb.com/SophieTheBusker'
+    assert @busker.valid?
+  end
+
+  test "facebook address should prefer https prefix and facebook.com" do
+    @busker.facebook = 'http://fb.com/SophieTheBusker'
+    @busker.valid?
+    assert_equal('https://facebook.com/SophieTheBusker', @busker.facebook)
   end
 
   test "website should be valid" do
@@ -57,16 +74,6 @@ class BuskerTest < ActiveSupport::TestCase
     @busker.twitter = ' '
     @busker.website = ''
     @busker.facebook = '  '
-    assert @busker.valid?
-  end
-
-  test "facebook address should be prefixed with https if no prefix specified" do
-    @busker.facebook = 'fb.com/SophieTheBusker'
-    assert @busker.valid?
-  end
-
-  test "twitter address should be prefixed with https if no prefix specified" do
-    @busker.twitter = 'twitter.com/buskinginbath'
     assert @busker.valid?
   end
 end
