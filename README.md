@@ -22,3 +22,22 @@ export CLOUDINARY_API_SECRET=
 * ```cd ../; cd -``` RVM should install the required ruby version (as specified in .ruby-version)
 * Run ```bundle install```
 * Change out of the repository directory and back in. If the setup has gone to plan, pow should automatically serve the website at: http://busker-tracker.dev/
+
+## Dev Heroku setup
+
+* Install [Heroku toolbelt](https://toolbelt.heroku.com/) and login
+* Push development branch to heroku e.g. `busker-model` branch
+```bash
+heroku create
+git push heroku busker-model:master
+```
+* Use heroku config:set to set configuration variables - specifying the values below
+```bash
+heroku config:set CLOUDINARY_NAME= CLOUDINARY_API_KEY= CLOUDINARY_API_SECRET=
+```
+* Also set up local env variables in .env:
+```
+CLOUDINARY_NAME=
+CLOUDINARY_API_KEY=
+CLOUDINARY_API_SECRET=
+```
