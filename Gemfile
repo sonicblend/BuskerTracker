@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.2.3'
 
 # Template language
 gem 'haml'
@@ -6,6 +7,8 @@ gem 'haml'
 gem 'foundation-rails'
 # Image upload
 gem 'cloudinary'
+# Puma server
+gem 'puma'
 
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.15'
@@ -56,3 +59,7 @@ group :development do
   gem 'spring'
 end
 
+group :production do
+  # recommended by heroku - for logging, asset serving
+  gem 'rails_12factor'
+end
