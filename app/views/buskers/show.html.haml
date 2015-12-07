@@ -14,14 +14,22 @@
     = 'no image'
 %p
   %b Facebook:
-  = @busker.facebook
+  - if @busker.facebook.present?
+    = link_to @busker.facebook, @busker.facebook
+  - else
+    &nbsp;
 %p
   %b Twitter:
-  = @busker.twitter
+  - if @busker.twitter.present?
+    = link_to @busker.twitter, @busker.twitter
+  - else
+    &nbsp;
 %p
   %b Website:
-  = @busker.website
-
+  - if @busker.website.present?
+    = link_to @busker.website, @busker.website
+  - else
+    &nbsp;
 = link_to 'Edit', edit_busker_path(@busker)
 \|
 = link_to 'Back', buskers_path

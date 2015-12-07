@@ -3,29 +3,40 @@
 %table
   %thead
     %tr
-      %th Image
       %th Name
+      %th Image
       %th Description
       %th Facebook
       %th Twitter
       %th Website
       %th
       %th
-      %th
 
   %tbody
     - @buskers.each do |busker|
       %tr
-        - if busker.image_id.present?
-          %td= cl_image_tag(busker.image_id, :crop => :fill, :width => 120, :height => 80)
-        - else
-          %td= 'no image'
-        %td= busker.name
+        %td= link_to busker.name, busker
+        %td
+          - if busker.image_id.present?
+            = cl_image_tag(busker.image_id, :crop => :fill, :width => 120, :height => 80)
+          - else
+            &nbsp;
         %td= busker.description
-        %td= busker.facebook
-        %td= busker.twitter
-        %td= busker.website
-        %td= link_to 'Show', busker
+        %td
+          - if busker.facebook.present?
+            = link_to busker.facebook, busker.facebook
+          - else
+            &nbsp;
+        %td
+          - if busker.twitter.present?
+            = link_to busker.twitter, busker.twitter
+          - else
+            &nbsp;
+        %td
+          - if busker.website.present?
+            = link_to busker.website, busker.website
+          - else
+            &nbsp;
         %td= link_to 'Edit', edit_busker_path(busker)
         %td= link_to 'Destroy', busker, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
