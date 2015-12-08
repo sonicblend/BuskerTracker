@@ -1,0 +1,35 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @busker.name
+%p
+  %b Description:
+  = @busker.description
+%p
+  %b Image:
+  - if @busker.image_id.present?
+    = cl_image_tag(@busker.image_id, :crop => :fill, :width => 120, :height => 80)
+  - else
+    = 'no image'
+%p
+  %b Facebook:
+  - if @busker.facebook.present?
+    = link_to @busker.facebook, @busker.facebook
+  - else
+    &nbsp;
+%p
+  %b Twitter:
+  - if @busker.twitter.present?
+    = link_to @busker.twitter, @busker.twitter
+  - else
+    &nbsp;
+%p
+  %b Website:
+  - if @busker.website.present?
+    = link_to @busker.website, @busker.website
+  - else
+    &nbsp;
+= link_to 'Edit', edit_busker_path(@busker)
+\|
+= link_to 'Back', buskers_path

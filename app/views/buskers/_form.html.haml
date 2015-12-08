@@ -1,0 +1,47 @@
+= cloudinary_js_config
+= form_for @busker do |f|
+  - if @busker.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@busker.errors.count, "error")} prohibited this busker from being saved:"
+      %ul
+        - @busker.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :description
+    = f.text_area :description
+  .field
+    = f.label :image_id
+    = f.hidden_field :image_id
+    = cl_image_upload_tag(:image_id)
+    #busker-image-preview
+      - if @busker.image_id.present?
+        = cl_image_tag(@busker.image_id, :crop => :fill, :width => 120, :height => 80)
+
+    :javascript
+      $('.cloudinary-fileupload').bind('cloudinarydone', function(e, data) {
+        $('#busker-image-preview').html(
+          $.cloudinary.image(data.result.public_id,
+            { format: data.result.format, version: data.result.version,
+              crop: 'fill', width: 150, height: 100 })
+        );
+        $('#busker_image_id').val(data.result.public_id);
+        return true;
+      });
+
+  .field
+    = f.label :facebook
+    = p "http://facebook.com/ "
+    = f.text_field :facebook
+  .field
+    = f.label :twitter
+    = p "http://twitter.com/ "
+    = f.text_field :twitter
+  .field
+    = f.label :website
+    = f.text_field :website
+  .actions
+    = f.submit 'Save'
