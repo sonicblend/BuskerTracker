@@ -20,10 +20,4 @@ else
   echo "RVM project not found at: $PWD"
 fi
 
-# sign up at https://cloudinary.com
-#
-#export CLOUDINARY_NAME=
-#export CLOUDINARY_API_KEY=
-#export CLOUDINARY_API_SECRET=
-
 source .powenv.local
