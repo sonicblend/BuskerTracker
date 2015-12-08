@@ -2,7 +2,7 @@ require 'test_helper'
 
 class BuskerTest < ActiveSupport::TestCase
   def setup
-    @busker = buskers :one
+    @busker = buskers :two
   end
 
   test "should be valid" do
@@ -34,7 +34,9 @@ class BuskerTest < ActiveSupport::TestCase
   end
 
   test "facebook url should be prefixed with correct host" do
-    assert_equal('https://facebook.com/loopytom', @busker.facebook_url)
+    @busker.facebook = 'mariahcarey'
+    @busker.valid?
+    assert_equal('https://facebook.com/mariahcarey', @busker.facebook_url)
   end
 
   test "facebook should reject invalid identifiers" do
