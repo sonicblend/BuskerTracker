@@ -27,10 +27,14 @@ class BuskerTest < ActiveSupport::TestCase
     assert_not @busker.valid?
   end
 
-  test "twitter url should be prefixed with https" do
+  test "twitter url should be prefixed with correct host" do
     @busker.twitter = 'buskinginbath'
     @busker.valid?
     assert_equal('https://twitter.com/buskinginbath', @busker.twitter_url)
+  end
+
+  test "facebook url should be prefixed with correct host" do
+    assert_equal('https://facebook.com/loopytom', @busker.facebook_url)
   end
 
   test "facebook should reject invalid identifiers" do
