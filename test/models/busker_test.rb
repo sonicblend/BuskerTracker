@@ -2,19 +2,14 @@ require 'test_helper'
 
 class BuskerTest < ActiveSupport::TestCase
   def setup
-    @busker = Busker.new(name: "Loopy Tom",
-                         description: "Loop-based music",
-                         image_id: "http://www.mickyatesphotography.com/Candid-Street/The-People-of-Bath/i-hJKQWWs/0/XL/Leica%20Bath%20May%202014%20Colour%20Wash%20-2-XL.jpg",
-                         facebook: "https://www.facebook.com/loopytom",
-                         twitter: "https://twitter.com/loopytomdotcom",
-                         website: "http://loopytom.com/")
+    @busker = buskers :one
   end
 
   test "should be valid" do
     assert @busker.valid?
   end
 
-  test "name should be present" do
+  test "busker name is mandatory" do
     @busker.name = '   '
     assert_not @busker.valid?
   end
@@ -32,8 +27,14 @@ class BuskerTest < ActiveSupport::TestCase
     assert_not @busker.valid?
   end
 
-  test "twitter address should be prefixed with https if no prefix specified" do
+  test "twitter address should be prefixed with https when no prefix specified" do
     @busker.twitter = 'twitter.com/buskinginbath'
+    @busker.valid?
+    assert_equal('https://twitter.com/buskinginbath', @busker.twitter)
+  end
+
+  test "twitter address should be prefixed with https when http prefix specified" do
+    @busker.twitter = 'http://twitter.com/buskinginbath'
     @busker.valid?
     assert_equal('https://twitter.com/buskinginbath', @busker.twitter)
   end
@@ -70,10 +71,7 @@ class BuskerTest < ActiveSupport::TestCase
     end
   end
 
-  test "should be valid without a twitter, website, or facebook" do
-    @busker.twitter = ' '
-    @busker.website = ''
-    @busker.facebook = '  '
-    assert @busker.valid?
+  test "should be valid with only a name" do
+    assert buskers(:only_a_name).valid?
   end
 end

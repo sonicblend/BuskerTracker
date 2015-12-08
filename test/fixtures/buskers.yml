@@ -1,17 +1,25 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  description: MyText
-  image_id: MyString
-  facebook: facebook.com/MyString
-  twitter: twitter.com/mystring
-  website: http://MyString.com
+  name: Loopy Tom
+  description: Loop-based music
+  image_id: st4grup05wwxum9bqbik
+  facebook: https://www.facebook.com/loopytom
+  twitter: https://twitter.com/loopytomdotcom
+  website: http://loopytom.com/
 
 two:
-  name: MyString
-  description: MyText
-  image_id: MyString
-  facebook: fb.com/MyString
-  twitter: twitter.com/aposdkpoaskdp
-  website: ''
+  name: Paul McCartney
+  description: Sir James Paul McCartney MBE is an English singer-songwriter, multi-instrumentalist, and composer.
+  image_id: st4grup05wwxum9bqbik
+  facebook: https://www.facebook.com/PaulMcCartney/
+  twitter: https://twitter.com/PaulMcCartney
+  website: http://www.paulmccartney.com/
+
+only_a_name:
+  name: Simon
+  description:
+  image_id:
+  facebook:
+  twitter:
+  website:
