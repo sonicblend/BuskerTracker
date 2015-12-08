@@ -9,7 +9,7 @@
   = link_to Busker.last.name, Busker.last
   is the most recent artist profiled in the
   = succeed '.' do
-    = link_to 'Busker database', controller: "buskers"
+    = link_to 'Busker database', buskers_path
 %p
   = link_to 'Add a busker', new_busker_path
   today.
