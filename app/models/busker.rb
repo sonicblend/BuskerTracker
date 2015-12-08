@@ -24,11 +24,11 @@ class Busker < ActiveRecord::Base
   }
 
   def twitter_url
-    "https://twitter.com/#{read_attribute(:twitter)}"   if read_attribute(:twitter).present?
+    "https://twitter.com/#{twitter}" if twitter.present?
   end
 
   def facebook_url
-    "https://facebook.com/#{read_attribute(:facebook)}" if read_attribute(:facebook).present?
+    "https://facebook.com/#{facebook}" if facebook.present?
   end
 
   private
