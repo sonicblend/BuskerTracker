@@ -1,32 +1,38 @@
 require 'uri'
 
 class Busker < ActiveRecord::Base
-  VALID_FACEBOOK_REGEX = /(facebook|fb).com\/[a-z\d.]{1,50}\z/i
-  VALID_TWITTER_REGEX  = /twitter.com\/[a-z\d_]{1,15}\z/i
+  VALID_FACEBOOK_REGEX = /\A[a-z\d.]{1,50}\z/i
+  VALID_TWITTER_REGEX  = /\A[a-z\d_]{1,15}\z/i
   VALID_URL            = URI::regexp(%w(http https))
   VALID_NO_SPACES      = /\A[^ @]+\z/
 
   before_validation :strip_whitespace, :prefix_url
 
   validates :name, presence: true
-  validates :facebook, allow_blank: true, format: VALID_FACEBOOK_REGEX
-  validates :twitter,  allow_blank: true, format: VALID_TWITTER_REGEX
+  validates :facebook, allow_blank: true, format: {
+    with:    VALID_FACEBOOK_REGEX,
+    message: 'must only contain the identifier'
+  }
+  validates :twitter,  allow_blank: true, format: {
+    with:    VALID_TWITTER_REGEX,
+    message: 'must only contain the identifier'
+  }
   validates :website,  allow_blank: true, format: VALID_URL
   validates :website,  allow_blank: true, format: {
     with:    VALID_NO_SPACES,
     message: 'must have no spaces, or @ symbols'
   }
 
+  def twitter_url
+    "https://twitter.com/#{twitter}" if twitter.present?
+  end
+
+  def facebook_url
+    "https://facebook.com/#{facebook}" if facebook.present?
+  end
+
   private
   def prefix_url
-    if !self.facebook.blank? && self.facebook_changed?
-      self.facebook = "https://#{facebook}" unless facebook =~ /:\/\//
-      self.facebook.sub!(/\Ahttps?:\/\/(fb|facebook).com/, 'https://facebook.com')
-    end
-    if !self.twitter.blank? && self.twitter_changed?
-      self.twitter = "https://#{twitter}" unless twitter =~ /:\/\//
-      self.twitter.sub!(/\Ahttps?:\/\/twitter.com/, 'https://twitter.com')
-    end
     if !self.website.blank? && self.website_changed?
       self.website = "http://#{website}" unless website =~ /:\/\//
     end

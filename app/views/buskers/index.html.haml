@@ -24,12 +24,12 @@
         %td= busker.description
         %td
           - if busker.facebook.present?
-            = link_to busker.facebook, busker.facebook
+            = link_to busker.facebook, busker.facebook_url
           - else
             &nbsp;
         %td
           - if busker.twitter.present?
-            = link_to busker.twitter, busker.twitter
+            = link_to busker.twitter, busker.twitter_url
           - else
             &nbsp;
         %td
