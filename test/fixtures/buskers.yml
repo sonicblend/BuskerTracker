@@ -4,16 +4,16 @@ one:
   name: Loopy Tom
   description: Loop-based music
   image_id: st4grup05wwxum9bqbik
-  facebook: https://www.facebook.com/loopytom
-  twitter: https://twitter.com/loopytomdotcom
+  facebook: loopytom
+  twitter: loopytomdotcom
   website: http://loopytom.com/
 
 two:
   name: Paul McCartney
   description: Sir James Paul McCartney MBE is an English singer-songwriter, multi-instrumentalist, and composer.
   image_id: st4grup05wwxum9bqbik
-  facebook: https://www.facebook.com/PaulMcCartney/
-  twitter: https://twitter.com/PaulMcCartney
+  facebook: PaulMcCartney
+  twitter: PaulMcCartney
   website: http://www.paulmccartney.com/
 
 only_a_name:
