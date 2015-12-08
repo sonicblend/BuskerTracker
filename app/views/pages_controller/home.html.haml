@@ -1,0 +1,15 @@
+%h1 Busker Tracker
+%p
+  Ever enjoyed a street performance only to wish you’d taken note of the performer’s name?
+%p
+  Discover street performances as they happened in
+  = succeed '!' do
+    = link_to 'Bath, UK', 'https://www.google.co.uk/maps/place/Storm+Consultancy/@51.3829775,-2.3629686,17z/'
+%p
+  = link_to Busker.last.name, Busker.last
+  is the most recent artist profiled in the
+  = succeed '.' do
+    = link_to 'Busker database', controller: "buskers"
+%p
+  = link_to 'Add a busker', new_busker_path
+  today.
