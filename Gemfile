@@ -5,6 +5,7 @@ ruby '2.2.3'
 gem 'haml'
 # Responsive HTML/CSS framework
 gem 'foundation-rails'
+gem 'foundation_rails_helper'
 # Image upload
 gem 'cloudinary'
 # Puma server
