@@ -33,7 +33,7 @@ class Busker < ActiveRecord::Base
 
   private
   def prefix_url
-    if !self.website.blank? && self.website_changed?
+    if self.website.present? && self.website_changed?
       self.website = "http://#{website}" unless website =~ /:\/\//
     end
   end
