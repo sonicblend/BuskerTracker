@@ -1,48 +1,39 @@
-.row.columns.medium-12
-  = cloudinary_js_config
-  = form_for @busker do |f|
-    - if @busker.errors.any?
-      #error_explanation
-        %h2= "#{pluralize(@busker.errors.count, "error")} prohibited this busker from being saved:"
-        %ul
-          - @busker.errors.full_messages.each do |msg|
-            %li= msg
+= cloudinary_js_config
+= form_for @busker do |f|
+  - if @busker.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@busker.errors.count, "error")} prohibited this busker from being saved:"
+      %ul
+        - @busker.errors.full_messages.each do |msg|
+          %li= msg
 
-    .field
-      = f.label :name
-      = f.text_field :name
-    .field
-      = f.label :description
-      = f.text_area :description
-    .field
-      = f.label :image_id
-      = f.hidden_field :image_id
-      = cl_image_upload_tag(:image_id)
-      #busker-image-preview
-        - if @busker.image_id.present?
-          = cl_image_tag(@busker.image_id, :crop => :fill, :width => 120, :height => 80)
+  .field
+    = f.text_field :name
+  .field
+    = f.text_area :description
+  .field
+    = f.hidden_field :image_id
+    = cl_image_upload_tag(:image_id)
+    #busker-image-preview
+      - if @busker.image_id.present?
+        = cl_image_tag(@busker.image_id, :crop => :fill, :width => 120, :height => 80)
 
-      :javascript
-        $('.cloudinary-fileupload').bind('cloudinarydone', function(e, data) {
-          $('#busker-image-preview').html(
-            $.cloudinary.image(data.result.public_id,
-              { format: data.result.format, version: data.result.version,
-                crop: 'fill', width: 150, height: 100 })
-          );
-          $('#busker_image_id').val(data.result.public_id);
-          return true;
-        });
+    :javascript
+      $('.cloudinary-fileupload').bind('cloudinarydone', function(e, data) {
+        $('#busker-image-preview').html(
+          $.cloudinary.image(data.result.public_id,
+            { format: data.result.format, version: data.result.version,
+              crop: 'fill', width: 150, height: 100 })
+        );
+        $('#busker_image_id').val(data.result.public_id);
+        return true;
+      });
 
-    .field
-      = f.label :facebook
-      %span= "http://facebook.com/"
-      = f.text_field :facebook
-    .field
-      = f.label :twitter
-      %span= "http://twitter.com/"
-      = f.text_field :twitter
-    .field
-      = f.label :website
-      = f.text_field :website
-    .actions
-      = f.submit 'Save'
+  .field
+    = f.text_field :facebook, prefix: { value: 'http://facebook.com/', small: 2, large: 3 }
+  .field
+    = f.text_field :twitter, prefix: { value: 'http://twitter.com/', small: 2, large: 3 }
+  .field
+    = f.text_field :website
+  .actions
+    = f.submit 'Save'
