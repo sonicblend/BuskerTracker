@@ -28,6 +28,8 @@
           - else
             = 'no image'
 
+    %hr
+
     %section
       .row
         .columns.medium-12
@@ -49,7 +51,7 @@
             Forthcoming features
       .row
         .columns.medium-4
-          = render partial: 'pages_controller/map'
+          #map
         .columns.medium-8
           %p
             Discover street performances as we do - as they take place outside our office.
@@ -57,7 +59,7 @@
   .columns.medium-4
     %nav
       %h3
-        Site navigation
+        Features
       %ul.side-nav
         %li= link_to 'List Buskers', buskers_path
         %li= link_to 'Add a busker', new_busker_path
