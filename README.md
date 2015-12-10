@@ -4,6 +4,8 @@ Track street performances as they happen outside Storm Consultancy headquarters 
 
 This is my first Ruby on Rails application, feedback is welcome.
 
+[![Build Status](https://semaphoreci.com/api/v1/projects/a612ecce-2cc1-4eea-870d-00e01d5bc3f6/630248/badge.svg)](https://semaphoreci.com/pete-black/buskertracker)
+
 ## Overview
 
 - Each busker has a profile with photo and contact links
