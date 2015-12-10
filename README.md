@@ -4,6 +4,8 @@ Track street performances as they happen outside Storm Consultancy headquarters 
 
 This is my first Ruby on Rails application, feedback is welcome.
 
+[![Code Climate](https://codeclimate.com/github/sonicblend/BuskerTracker/badges/gpa.svg)](https://codeclimate.com/github/sonicblend/BuskerTracker)
+
 ## Overview
 
 - Each busker has a profile with photo and contact links
