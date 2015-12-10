@@ -9,8 +9,11 @@
           %span
             Menu
     %section.top-bar-section
-      %ul.left
-        %li.divider
-        %li= link_to 'Buskers', buskers_path
-        %li.divider
       %ul.right
+        %li.has-dropdown
+          %a{href: "#"}
+            Buskers
+          %ul.dropdown
+            %li= link_to 'List Buskers', buskers_path
+            %li= link_to 'Add a busker', new_busker_path
+      %ul.left
