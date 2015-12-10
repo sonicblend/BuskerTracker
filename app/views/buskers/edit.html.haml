@@ -1,8 +1,9 @@
-.row.columns.medium-12
-  %h2 Editing busker
+.row
+  .columns.medium-12
+    %h2 Editing busker
 
-  = render 'form'
+    = render 'form'
 
-  = link_to 'Show', @busker
-  \|
-  = link_to 'Back', buskers_path
+    = link_to 'Show', @busker
+    \|
+    = link_to 'Back', buskers_path

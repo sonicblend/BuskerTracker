@@ -1,46 +1,47 @@
-.row.columns.medium-12
-  %h2 List of buskers
+.row
+  .columns.medium-12
+    %h2 List of buskers
 
-  %table
-    %thead
-      %tr
-        %th Name
-        %th Image
-        %th Description
-        %th Facebook
-        %th Twitter
-        %th Website
-        %th
-        %th
-
-    %tbody
-      - @buskers.each do |busker|
+    %table
+      %thead
         %tr
-          %td= link_to busker.name, busker
-          %td
-            - if busker.image_id.present?
-              = cl_image_tag(busker.image_id, :crop => :fill, :width => 120, :height => 80)
-            - else
-              &nbsp;
-          %td= busker.description
-          %td
-            - if busker.facebook.present?
-              = link_to busker.facebook, busker.facebook_url
-            - else
-              &nbsp;
-          %td
-            - if busker.twitter.present?
-              = link_to busker.twitter, busker.twitter_url
-            - else
-              &nbsp;
-          %td
-            - if busker.website.present?
-              = link_to busker.website, busker.website
-            - else
-              &nbsp;
-          %td= link_to 'Edit', edit_busker_path(busker)
-          %td= link_to 'Destroy', busker, :method => :delete, :data => { :confirm => 'Are you sure?' }
+          %th Name
+          %th Image
+          %th Description
+          %th Facebook
+          %th Twitter
+          %th Website
+          %th
+          %th
 
-  %br
+      %tbody
+        - @buskers.each do |busker|
+          %tr
+            %td= link_to busker.name, busker
+            %td
+              - if busker.image_id.present?
+                = cl_image_tag(busker.image_id, :crop => :fill, :width => 120, :height => 80)
+              - else
+                &nbsp;
+            %td= busker.description
+            %td
+              - if busker.facebook.present?
+                = link_to busker.facebook, busker.facebook_url
+              - else
+                &nbsp;
+            %td
+              - if busker.twitter.present?
+                = link_to busker.twitter, busker.twitter_url
+              - else
+                &nbsp;
+            %td
+              - if busker.website.present?
+                = link_to busker.website, busker.website
+              - else
+                &nbsp;
+            %td= link_to 'Edit', edit_busker_path(busker)
+            %td= link_to 'Destroy', busker, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-  = link_to 'New Busker', new_busker_path
+    %br
+
+    = link_to 'New Busker', new_busker_path
