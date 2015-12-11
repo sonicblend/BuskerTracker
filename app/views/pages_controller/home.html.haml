@@ -1,3 +1,7 @@
+= content_for :footer do
+  = javascript_include_tag 'home.js'
+  = javascript_include_tag "https://maps.googleapis.com/maps/api/js?callback=load_storm_map"
+
 .row
   .columns.medium-12
     .panel

@@ -15,6 +15,6 @@
 //= require foundation
 //= require turbolinks
 //= require cloudinary
-//= require_tree .
+//= require_tree ./common
 
 $(function(){ $(document).foundation(); });

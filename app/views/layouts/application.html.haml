@@ -18,6 +18,4 @@
     = yield
 
     = javascript_include_tag "application", 'data-turbolinks-track' => true
-
-    - if controller_name == 'pages_controller' && action_name == 'home'
-      = javascript_include_tag "https://maps.googleapis.com/maps/api/js?callback=load_storm_map"
+    = content_for :footer
