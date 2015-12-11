@@ -9,8 +9,6 @@
 
     = stylesheet_link_tag "application"
     = javascript_include_tag "vendor/modernizr"
-    = javascript_include_tag "application", 'data-turbolinks-track' => true
-    = javascript_include_tag "https://maps.googleapis.com/maps/api/js" if controller_name == 'pages_controller' && action_name == 'home'
     = csrf_meta_tag
 
   %body{class: [controller_name, action_name]}
@@ -19,6 +17,7 @@
 
     = yield
 
+    = javascript_include_tag "application", 'data-turbolinks-track' => true
+
     - if controller_name == 'pages_controller' && action_name == 'home'
-      :javascript
-        google.maps.event.addDomListener(window, 'load', init_storm_map);
+      = javascript_include_tag "https://maps.googleapis.com/maps/api/js?callback=load_storm_map"
