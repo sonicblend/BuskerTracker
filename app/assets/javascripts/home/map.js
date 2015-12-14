@@ -1,3 +1,4 @@
+/* disable eslint no-unused-vars check, it doesn't know that load_storm_map() is referred to by google maps api callback */
 /*eslint-disable no-unused-vars*/
 function load_storm_map() {
   var storm = {lat: 51.3829394, lng: -2.3607561000000032};
