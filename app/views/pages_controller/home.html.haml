@@ -28,7 +28,7 @@
             = Busker.last.description
         .columns.medium-4
           - if Busker.last.image_id.present?
-            = link_to cl_image_tag(Busker.last.image_id, :crop => :fill, :width => 200, :height => 200), Busker.last
+            = link_to cl_image_tag(Busker.last.image_id, :crop => :fill, :width => 200, :height => 200, :gravity => :faces), Busker.last
           - else
             = 'no image'
 
