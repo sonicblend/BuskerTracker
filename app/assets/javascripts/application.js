@@ -17,4 +17,7 @@
 //= require cloudinary
 //= require_tree ./common
 
-$(function(){ $(document).foundation(); });
+// init foundation twice... fixes "Uncaught TypeError: Cannot read property 'sticky_class' of undefined"
+$(document).on('ready page:load', function () {
+  $(document).foundation();
+});
