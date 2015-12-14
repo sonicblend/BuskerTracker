@@ -1,4 +1,19 @@
-= cloudinary_js_config
+= content_for :cloudinary_bind do
+  :javascript
+    $('.cloudinary-fileupload').bind('cloudinarydone', function(e, data) {
+      $('#busker-image-preview').html(
+        $.cloudinary.image(data.result.public_id,
+          { format: data.result.format, version: data.result.version,
+            crop: 'fill', width: 120, height: 120, gravity: 'faces' })
+      );
+      $('#busker_image_id').val(data.result.public_id);
+      return true;
+    });
+
+= content_for :footer do
+  = cloudinary_js_config
+  = yield :cloudinary_bind
+
 = form_for @busker do |f|
   - if @busker.errors.any?
     #error_explanation
@@ -16,19 +31,7 @@
     = cl_image_upload_tag(:image_id)
     #busker-image-preview
       - if @busker.image_id.present?
-        = cl_image_tag(@busker.image_id, :crop => :fill, :width => 120, :height => 80)
-
-    :javascript
-      $('.cloudinary-fileupload').bind('cloudinarydone', function(e, data) {
-        $('#busker-image-preview').html(
-          $.cloudinary.image(data.result.public_id,
-            { format: data.result.format, version: data.result.version,
-              crop: 'fill', width: 150, height: 100 })
-        );
-        $('#busker_image_id').val(data.result.public_id);
-        return true;
-      });
-
+        = cl_image_tag(@busker.image_id, :crop => :fill, :width => 120, :height => 120, :gravity => :faces)
   .field
     = f.text_field :facebook, prefix: { value: 'http://facebook.com/', small: 2, large: 3 }
   .field
