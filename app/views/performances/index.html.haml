@@ -1,0 +1,27 @@
+%h1 Listing performances
+
+%table
+  %thead
+    %tr
+      %th Start date
+      %th End date
+      %th Amplified
+      %th Busker
+      %th
+      %th
+      %th
+
+  %tbody
+    - @performances.each do |performance|
+      %tr
+        %td= performance.start_date
+        %td= performance.end_date
+        %td= performance.amplified
+        %td= performance.busker_id
+        %td= link_to 'Show', performance
+        %td= link_to 'Edit', edit_performance_path(performance)
+        %td= link_to 'Destroy', performance, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Performance', new_performance_path

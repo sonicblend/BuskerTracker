@@ -1,6 +1,8 @@
 require 'uri'
 
 class Busker < ActiveRecord::Base
+  has_many :performances, dependent: :destroy
+
   VALID_FACEBOOK_REGEX = /\A[a-z\d.]{1,50}\z/i
   VALID_TWITTER_REGEX  = /\A[a-z\d_]{1,15}\z/i
   VALID_URL            = URI::regexp(%w(http https))
