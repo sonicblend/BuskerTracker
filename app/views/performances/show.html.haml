@@ -1,18 +1,20 @@
-%p#notice= notice
+.row
+  .columns.medium-12
+    %p#notice= notice
 
-%p
-  %b Start date:
-  = @performance.start_date
-%p
-  %b End date:
-  = @performance.end_date
-%p
-  %b Amplified:
-  = @performance.amplified
-%p
-  %b Busker:
-  = @performance.busker_id
+    %p
+      %b Start date:
+      = @performance.start_date
+    %p
+      %b End date:
+      = @performance.end_date
+    %p
+      %b Amplified:
+      = @performance.amplified
+    %p
+      %b Busker:
+      = @performance.busker_id
 
-= link_to 'Edit', edit_performance_path(@performance)
-\|
-= link_to 'Back', performances_path
+    = link_to 'Edit', edit_performance_path(@performance)
+    \|
+    = link_to 'Back', performances_path

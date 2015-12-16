@@ -15,5 +15,11 @@
             Buskers
           %ul.dropdown
             %li= link_to 'List Buskers', buskers_path
-            %li= link_to 'Add a busker', new_busker_path
+            %li= link_to 'Add a Busker', new_busker_path
+        %li.has-dropdown
+          %a{href: "#"}
+            Performances
+          %ul.dropdown
+            %li= link_to 'List Performances', performances_path
+            %li= link_to 'Add a Performance', new_performance_path
       %ul.left
