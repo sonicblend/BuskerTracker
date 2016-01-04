@@ -2,7 +2,7 @@ require 'test_helper'
 
 class PerformancesControllerTest < ActionController::TestCase
   setup do
-    @performance = performances(:one)
+    @performance = performances(:first)
   end
 
   test "should get index" do
