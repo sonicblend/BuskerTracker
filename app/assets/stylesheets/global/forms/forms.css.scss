@@ -1,8 +1,11 @@
-form {
+body.performances form {
   div.datetime {
     display: inline;
   }
+  select.datetime:nth-child(3) {
+    width: 30%;
+  }
   select.datetime {
-    width: 17%;
+    width: 15%;
   }
 }

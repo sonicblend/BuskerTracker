@@ -5,11 +5,14 @@
       %ul
         - @performance.errors.full_messages.each do |msg|
           %li= msg
-
-  .field.datetime
-    = f.datetime_select :start_date, {}, {class: 'datetime'}
-  .field.datetime
-    = f.datetime_select :end_date, {}, {class: 'datetime'}
+  .row
+    .columns.medium-6
+      .field.datetime
+        = f.datetime_select :start_date, {}, {class: 'datetime'}
+  .row
+    .columns.medium-6
+      .field.datetime
+        = f.datetime_select :end_date, {}, {class: 'datetime'}
   .field
     = f.check_box :amplified
   .field
