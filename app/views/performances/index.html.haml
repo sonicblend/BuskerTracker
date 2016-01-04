@@ -14,12 +14,13 @@
           %th
 
       %tbody
+        - @performances.includes(:busker)
         - @performances.each do |performance|
           %tr
             %td= performance.start_date
             %td= performance.end_date
             %td= performance.amplified?.yesno
-            %td= Busker.find(performance.busker_id).name
+            %td= performance.busker.name
             %td= link_to 'Show', performance
             %td= link_to 'Edit', edit_performance_path(performance)
             %td= link_to 'Destroy', performance, :method => :delete, :data => { :confirm => 'Are you sure?' }
