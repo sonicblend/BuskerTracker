@@ -6,6 +6,10 @@
         - @performance.errors.full_messages.each do |msg|
           %li= msg
   .row
+    .columns
+      .field
+        = f.select :busker_id, Busker.all.map{ |busker| [busker.name, busker.id] }
+  .row
     .columns.medium-6
       .field.datetime
         = f.datetime_select :start_date, {}, {class: 'datetime'}
@@ -13,9 +17,11 @@
     .columns.medium-6
       .field.datetime
         = f.datetime_select :end_date, {}, {class: 'datetime'}
-  .field
-    = f.check_box :amplified
-  .field
-    = f.number_field :busker_id
-  .actions
-    = f.submit 'Save'
+  .row
+    .columns
+      .field
+        = f.check_box :amplified
+  .row
+    .columns
+      .actions
+        = f.submit 'Save'

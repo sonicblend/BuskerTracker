@@ -18,8 +18,8 @@
           %tr
             %td= performance.start_date
             %td= performance.end_date
-            %td= performance.amplified
-            %td= performance.busker_id
+            %td= performance.amplified?.yesno
+            %td= Busker.find(performance.busker_id).name
             %td= link_to 'Show', performance
             %td= link_to 'Edit', edit_performance_path(performance)
             %td= link_to 'Destroy', performance, :method => :delete, :data => { :confirm => 'Are you sure?' }

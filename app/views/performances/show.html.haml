@@ -10,10 +10,10 @@
       = @performance.end_date
     %p
       %b Amplified:
-      = @performance.amplified
+      = @performance.amplified?.yesno
     %p
       %b Busker:
-      = @performance.busker_id
+      = Busker.find(@performance.busker_id).name
 
     = link_to 'Edit', edit_performance_path(@performance)
     \|
