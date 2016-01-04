@@ -1,6 +1,6 @@
 .row
   .columns.medium-12
-    %h1 Listing performances
+    %h2 List of performances
 
     %table
       %thead
@@ -9,7 +9,6 @@
           %th End date
           %th Amplified
           %th Busker
-          %th
           %th
           %th
 
@@ -21,7 +20,6 @@
             %td= performance.end_date
             %td= performance.amplified?.yesno
             %td= performance.busker.name
-            %td= link_to 'Show', performance
             %td= link_to 'Edit', edit_performance_path(performance)
             %td= link_to 'Destroy', performance, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
