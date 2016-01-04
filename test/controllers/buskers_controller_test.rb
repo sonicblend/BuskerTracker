@@ -2,7 +2,7 @@ require 'test_helper'
 
 class BuskersControllerTest < ActionController::TestCase
   setup do
-    @busker = buskers(:one)
+    @busker = buskers(:tom)
   end
 
   test "should get index" do

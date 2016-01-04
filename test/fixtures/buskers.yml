@@ -1,6 +1,6 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+tom:
   name: Loopy Tom
   description: Loop-based music
   image_id: st4grup05wwxum9bqbik
@@ -8,7 +8,7 @@ one:
   twitter: loopytomdotcom
   website: http://loopytom.com/
 
-two:
+paul:
   name: Paul McCartney
   description: Sir James Paul McCartney MBE is an English singer-songwriter, multi-instrumentalist, and composer.
   image_id: st4grup05wwxum9bqbik

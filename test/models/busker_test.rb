@@ -2,7 +2,7 @@ require 'test_helper'
 
 class BuskerTest < ActiveSupport::TestCase
   def setup
-    @busker = buskers :two
+    @busker = buskers :paul
   end
 
   test "should be valid" do
