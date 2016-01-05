@@ -6,11 +6,15 @@
         - @location.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :description
-    = f.text_area :description
-  .actions
-    = f.submit 'Save'
+  .row
+    .columns
+      .field
+        = f.text_field :name
+  .row
+    .columns
+      .field
+        = f.text_area :description
+  .row
+    .columns
+      .actions
+        = f.submit 'Save'
