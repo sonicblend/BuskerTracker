@@ -5,9 +5,11 @@ first:
   end_date: 2015-12-16 10:00:00
   amplified: true
   busker: paul
+  location: storm
 
 second:
   start_date: 2015-12-16 10:00:00
   end_date: 2015-12-16 11:00:00
   amplified: false
   busker: tom
+  location: waitrose
