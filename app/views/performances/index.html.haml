@@ -2,28 +2,7 @@
   .columns.medium-12
     %h2 List of performances
 
-    %table
-      %thead
-        %tr
-          %th Location
-          %th Start date
-          %th End date
-          %th Amplified
-          %th Busker
-          %th
-          %th
-
-      %tbody
-        - @performances.includes(:busker, :location)
-        - @performances.each do |performance|
-          %tr
-            %td= link_to performance.location.name, location_path(performance.location)
-            %td= performance.start_date
-            %td= performance.end_date
-            %td= performance.amplified?.yesno
-            %td= link_to performance.busker.name, busker_path(performance.busker)
-            %td= link_to 'Edit', edit_performance_path(performance)
-            %td= link_to 'Destroy', performance, :method => :delete, :data => { :confirm => 'Are you sure?' }
+    = render partial: "shared/performances"
 
     %br
 

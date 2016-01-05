@@ -1,0 +1,15 @@
+%table
+  %thead
+    %tr
+      %th Location
+      %th Start date
+      %th End date
+      %th Amplified
+      %th Busker
+      %th
+      %th
+
+  %tbody
+
+    - @performances.includes(:busker, :location)
+    = render partial: "shared/performance", collection: @performances
