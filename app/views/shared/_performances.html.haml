@@ -11,5 +11,5 @@
 
   %tbody
 
-    - @performances.includes(:busker, :location)
-    = render partial: "shared/performance", collection: @performances
+    - performances.includes(:busker, :location)
+    = render partial: "shared/performance", collection: performances

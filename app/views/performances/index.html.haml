@@ -2,7 +2,7 @@
   .columns.medium-12
     %h2 List of performances
 
-    = render partial: "shared/performances"
+    = render partial: "shared/performances", locals: { performances: @performances }
 
     %br
 
