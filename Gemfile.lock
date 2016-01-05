@@ -65,6 +65,8 @@ GEM
       warden (~> 1.2.3)
     domain_name (0.5.25)
       unf (>= 0.0.5, < 1.0.0)
+    erb2haml (0.1.5)
+      html2haml
     erubis (2.7.0)
     execjs (2.6.0)
     ffi (1.9.10)
@@ -240,6 +242,7 @@ DEPENDENCIES
   cloudinary
   coffee-rails (~> 4.1.0)
   devise
+  erb2haml
   foundation-rails
   foundation_rails_helper
   guard
