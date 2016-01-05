@@ -1,5 +1,6 @@
 class Performance < ActiveRecord::Base
   belongs_to :busker
+  has_one :location
 
   validate :ensure_end_date_after_start_date
 
