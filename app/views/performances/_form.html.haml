@@ -8,6 +8,10 @@
   .row
     .columns
       .field
+        = f.select :location_id, Location.all.map{ |location| [location.name, location.id] }
+  .row
+    .columns
+      .field
         = f.select :busker_id, Busker.all.map{ |busker| [busker.name, busker.id] }
   .row
     .columns.medium-6

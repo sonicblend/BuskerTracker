@@ -5,6 +5,7 @@
     %table
       %thead
         %tr
+          %th Location
           %th Start date
           %th End date
           %th Amplified
@@ -13,9 +14,10 @@
           %th
 
       %tbody
-        - @performances.includes(:busker)
+        - @performances.includes(:busker, :location)
         - @performances.each do |performance|
           %tr
+            %td= performance.location.name
             %td= performance.start_date
             %td= performance.end_date
             %td= performance.amplified?.yesno
