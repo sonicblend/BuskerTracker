@@ -46,7 +46,6 @@ gem 'devise'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'haml-rails'
   gem 'byebug'
 end
 
@@ -59,6 +58,7 @@ end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
+  gem 'haml-rails', '~> 0.9'
   # Required to convert Devize erb views to haml
   gem 'erb2haml'
 

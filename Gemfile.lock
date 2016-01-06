@@ -251,7 +251,7 @@ DEPENDENCIES
   guard
   guard-minitest
   haml
-  haml-rails
+  haml-rails (~> 0.9)
   jquery-rails
   minitest-reporters
   pg (~> 0.15)
