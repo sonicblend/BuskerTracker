@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   def check_user_is_an_admin
     unless user_signed_in? && current_user.admin?
-      redirect_to root_url
+      redirect_to root_url, alert: 'You must be an Admin to access this.'
     end
   end
 end
