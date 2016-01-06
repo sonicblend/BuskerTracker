@@ -23,10 +23,10 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-bill:
+joe_public:
   email: 'bill@example.com'
   admin: false
 
-mary:
+mary_admin:
   email: 'mary@example.com'
   admin: true

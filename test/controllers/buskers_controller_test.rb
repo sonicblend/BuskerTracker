@@ -20,7 +20,7 @@ class BuskersControllerTest < ActionController::TestCase
 
   setup do
     @busker = buskers(:tom)
-    login(:mary)
+    login(:mary_admin)
  end
 
   test "should get index" do

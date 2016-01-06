@@ -15,6 +15,8 @@
 class PerformancesController < ApplicationController
   before_action :set_performance, only: [:show, :edit, :update, :destroy]
 
+  before_action :authenticate_user!, only: [:create, :new, :edit, :update, :destroy]
+
   # GET /performances
   def index
     @performances = Performance.all

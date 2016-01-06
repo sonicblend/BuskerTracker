@@ -16,7 +16,7 @@ class LocationsControllerTest < ActionController::TestCase
 
   setup do
     @location = locations(:waitrose)
-    login(:mary)
+    login(:mary_admin)
   end
 
   test "should get index" do

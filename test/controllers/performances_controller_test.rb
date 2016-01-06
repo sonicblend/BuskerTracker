@@ -15,8 +15,10 @@
 require 'test_helper'
 
 class PerformancesControllerTest < ActionController::TestCase
+  include DeviseHelpers
   setup do
     @performance = performances(:first)
+    login(:joe_public)
   end
 
   test "should get index" do
