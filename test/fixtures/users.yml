@@ -25,6 +25,8 @@
 #
 bill:
   email: 'bill@example.com'
+  admin: false
 
 mary:
   email: 'mary@example.com'
+  admin: true
