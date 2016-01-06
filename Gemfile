@@ -61,6 +61,8 @@ group :development do
   gem 'haml-rails', '~> 0.9'
   # Required to convert Devize erb views to haml
   gem 'erb2haml'
+  # Add a comment summarizing the current schema to the top of fixtures etc.
+  gem 'annotate'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
