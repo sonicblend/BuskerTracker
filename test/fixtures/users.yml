@@ -23,8 +23,8 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one:
-  email: 'one@example.com'
+bill:
+  email: 'bill@example.com'
 
-two:
-  email: 'two@example.com'
+mary:
+  email: 'mary@example.com'

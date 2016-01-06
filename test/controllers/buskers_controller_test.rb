@@ -16,9 +16,12 @@
 require 'test_helper'
 
 class BuskersControllerTest < ActionController::TestCase
+  include DeviseHelpers
+
   setup do
     @busker = buskers(:tom)
-  end
+    login(:mary)
+ end
 
   test "should get index" do
     get :index

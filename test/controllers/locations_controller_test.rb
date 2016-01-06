@@ -12,8 +12,11 @@
 require 'test_helper'
 
 class LocationsControllerTest < ActionController::TestCase
+  include DeviseHelpers
+
   setup do
     @location = locations(:waitrose)
+    login(:mary)
   end
 
   test "should get index" do

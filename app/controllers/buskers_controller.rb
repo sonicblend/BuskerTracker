@@ -15,6 +15,7 @@
 
 class BuskersController < ApplicationController
   before_action :set_busker, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:create, :new, :edit, :update, :destroy]
 
   # GET /buskers
   def index
