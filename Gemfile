@@ -63,6 +63,7 @@ group :development do
   gem 'erb2haml'
   # Add a comment summarizing the current schema to the top of fixtures etc.
   gem 'annotate'
+  gem 'guard-annotate'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
