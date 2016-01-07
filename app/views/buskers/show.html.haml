@@ -1,7 +1,5 @@
 .row
   .columns.medium-12
-    %p#notice= notice
-
     %p
       %b Name:
       = @busker.name
@@ -35,3 +33,10 @@
     = link_to 'Edit', edit_busker_path(@busker)
     \|
     = link_to 'Back', buskers_path
+.row
+  .columns.medium-12
+    %hr
+.row
+  .columns.medium-12
+    %h2 Recent performances
+    = render partial: "shared/performances", locals: { performances: @busker.performances.limit(5) }

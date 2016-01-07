@@ -1,5 +1,21 @@
+# == Schema Information
+#
+# Table name: performances
+#
+#  id          :integer          not null, primary key
+#  start_date  :datetime
+#  end_date    :datetime
+#  amplified   :boolean
+#  busker_id   :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  location_id :integer
+#
+
 class PerformancesController < ApplicationController
   before_action :set_performance, only: [:show, :edit, :update, :destroy]
+
+  before_action :authenticate_user!, except: [:index, :show, :create, :new]
 
   # GET /performances
   def index
@@ -53,6 +69,6 @@ class PerformancesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def performance_params
-      params.require(:performance).permit(:start_date, :end_date, :amplified, :busker_id)
+      params.require(:performance).permit(:start_date, :end_date, :amplified, :busker_id, :location_id)
     end
 end

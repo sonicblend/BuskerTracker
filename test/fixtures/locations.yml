@@ -1,0 +1,20 @@
+# == Schema Information
+#
+# Table name: locations
+#
+#  id          :integer          not null, primary key
+#  name        :string
+#  description :text
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+storm:
+  name: Storm
+  description: Outside Storm, on the corner of New Bond Street and Burton Street
+
+waitrose:
+  name: Waitrose
+  description: The Podium, Northgate St, Bath BA1 5AL

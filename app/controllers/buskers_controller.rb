@@ -1,5 +1,22 @@
+# == Schema Information
+#
+# Table name: buskers
+#
+#  id          :integer          not null, primary key
+#  name        :string
+#  description :text
+#  image_id    :string
+#  facebook    :string
+#  twitter     :string
+#  website     :string
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
 class BuskersController < ApplicationController
   before_action :set_busker, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!,     except: [:index, :show]
+  before_action :check_user_is_an_admin, except: [:index, :show]
 
   # GET /buskers
   def index

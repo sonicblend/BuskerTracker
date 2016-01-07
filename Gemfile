@@ -6,6 +6,7 @@ gem 'haml'
 # Responsive HTML/CSS framework
 gem 'foundation-rails'
 gem 'foundation_rails_helper'
+gem 'simple_form'
 # Image upload
 gem 'cloudinary'
 # Puma server
@@ -40,9 +41,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Use devise for user authentication
+gem 'devise'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'haml-rails'
   gem 'byebug'
 end
 
@@ -55,6 +58,12 @@ end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
+  gem 'haml-rails', '~> 0.9'
+  # Required to convert Devize erb views to haml
+  gem 'erb2haml'
+  # Add a comment summarizing the current schema to the top of fixtures etc.
+  gem 'annotate'
+  gem 'guard-annotate'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'

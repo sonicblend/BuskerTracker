@@ -1,0 +1,16 @@
+- notice ||= nil
+- alert  ||= nil
+- allow_html ||= false
+
+
+-if notice || flash[:notice].present?
+  %div.alert-box.success.flash-bar
+    %div.row
+      %div.large-12.columns.text-center
+        %span= html_safe_if allow_html, notice || flash[:notice]
+
+-if alert || flash[:alert].present?
+  %div.alert-box.alert.flash-bar
+    %div.row
+      %div.large-12.columns.text-center
+        %span= html_safe_if allow_html, alert || flash[:alert]
