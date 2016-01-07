@@ -21,7 +21,7 @@ class BuskersControllerTest < ActionController::TestCase
   setup do
     @busker = buskers(:tom)
     login(:mary_admin)
- end
+  end
 
   test "should get index" do
     get :index
