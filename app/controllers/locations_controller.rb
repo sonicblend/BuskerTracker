@@ -12,8 +12,8 @@
 class LocationsController < ApplicationController
   before_action :set_location, only: [:show, :edit, :update, :destroy]
 
-  before_action :authenticate_user!,     only: [:create, :new, :edit, :update, :destroy]
-  before_action :check_user_is_an_admin, only: [:create, :new, :edit, :update, :destroy]
+  before_action :authenticate_user!,     except: [:index, :show]
+  before_action :check_user_is_an_admin, except: [:index, :show]
 
   # GET /locations
   def index
