@@ -15,6 +15,7 @@
 class Performance < ActiveRecord::Base
   belongs_to :busker
   belongs_to :location
+  has_many   :ratings
 
   validate :ensure_end_date_after_start_date
 
