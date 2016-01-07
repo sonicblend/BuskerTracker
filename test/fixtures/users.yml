@@ -32,7 +32,9 @@
 joe_public:
   email: 'joe@example.com'
   admin: false
+  confirmed_at: <%= Time.now %>
 
 mary_admin:
   email: 'mary@example.com'
   admin: true
+  confirmed_at: <%= Time.now %>
