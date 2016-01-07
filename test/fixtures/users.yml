@@ -30,7 +30,7 @@
 # below each fixture, per the syntax in the comments below
 #
 joe_public:
-  email: 'bill@example.com'
+  email: 'joe@example.com'
   admin: false
 
 mary_admin:
