@@ -1,0 +1,11 @@
+= simple_form_for(@rating) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :emotion
+    = f.input :comment
+    = f.input :performance_id
+    = f.input :user_id
+
+  .form-actions
+    = f.button :submit
