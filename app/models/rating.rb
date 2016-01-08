@@ -14,4 +14,6 @@
 class Rating < ActiveRecord::Base
   belongs_to :user
   belongs_to :performance
+
+  enum emotion: [ :love, :splendid, :meh, :ennui, :wtf, :rage ]
 end
