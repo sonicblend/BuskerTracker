@@ -15,7 +15,7 @@ require 'test_helper'
 
 class RatingsControllerTest < ActionController::TestCase
   setup do
-    @rating = ratings(:one)
+    @rating = ratings(:love)
   end
 
   test "should get index" do
