@@ -16,11 +16,11 @@
 upset:
   emotion: Rating.emotions[:ennui]
   comment: "It just doesn't do it for me"
-  performance_id: first
-  user_id: joe_public
+  performance: first
+  user: joe_public
 
 love:
   emotion: Rating.emotions[:love]
   comment: "Best busker in Bath by far!"
-  performance_id: second
-  user_id: joe_public
+  performance: second
+  user: mary_admin
