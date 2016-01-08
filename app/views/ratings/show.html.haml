@@ -1,18 +1,20 @@
-%p#notice= notice
+.row
+  .columns.medium-12
+    %p#notice= notice
 
-%p
-  %b Emotion:
-  = @rating.emotion
-%p
-  %b Comment:
-  = @rating.comment
-%p
-  %b Performance:
-  = @rating.performance_id
-%p
-  %b User:
-  = @rating.user_id
+    %p
+      %b Performance:
+      = @rating.performance.to_s
+    %p
+      %b Emotion:
+      = @rating.emotion
+    %p
+      %b Comment:
+      = @rating.comment
+    %p
+      %b User:
+      = @rating.user.email
 
-= link_to 'Edit', edit_rating_path(@rating)
-\|
-= link_to 'Back', ratings_path
+    = link_to 'Edit', edit_rating_path(@rating)
+    \|
+    = link_to 'Back', ratings_path

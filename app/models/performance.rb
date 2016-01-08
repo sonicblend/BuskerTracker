@@ -19,6 +19,12 @@ class Performance < ActiveRecord::Base
 
   validate :ensure_end_date_after_start_date
 
+  def to_s
+    date_format = '%d-%m-%Y %H:%M'
+    start_date.strftime(date_format) + ' - ' + end_date.strftime(date_format) + ' - ' + Busker.find_by_id(busker_id).name
+  end
+
+  private
   def ensure_end_date_after_start_date
     errors.add(:end_date, "must occur after the start date") if
       end_date.present? and end_date <= start_date

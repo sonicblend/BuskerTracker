@@ -2,10 +2,10 @@
   = f.error_notification
 
   .form-inputs
-    = f.input :emotion
+    = f.input :performance_id, :as => :select, :collection => Performance.all.map{ |performance| [performance.to_s, performance.id] }
+    = f.input :emotion, :as => :select, :collection => Rating.emotions.keys.to_a
     = f.input :comment
-    = f.input :performance_id
-    = f.input :user_id
+    = f.input :user_id, :as => :select, :collection => User.all.map{ |user| [user.email, user.id] }
 
   .form-actions
     = f.button :submit
